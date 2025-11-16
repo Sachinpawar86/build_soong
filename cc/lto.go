@@ -115,10 +115,6 @@ func (lto *lto) flags(ctx ModuleContext, flags Flags) Flags {
 			ltoLdFlags = append(ltoLdFlags, "-Wl,--lto-O0")
 		}
 
-		// Utilize unified LTO for greater optimization than ThinLTO with a
-		// lesser compile time hit than full lto
-		ltoCFlags = append(ltoCFlags, "-funified-lto")
-
 		if Bool(lto.Properties.Whole_program_vtables) {
 			ltoCFlags = append(ltoCFlags, "-fwhole-program-vtables")
 		}
